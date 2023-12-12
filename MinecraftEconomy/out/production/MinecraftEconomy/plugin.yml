@@ -1,0 +1,57 @@
+name: Economy
+version: 1.0.0
+author: grafando
+description: Plugin allowing players to trade items and monetary value amongst each other
+main: com.grafando.economy.Eco
+api-version: 1.16
+load: STARTUP
+commands:
+  bal:
+    description: command displaying current balance of given players
+    usage: /<command> argument
+    aliases: [balance, money, konto, bank]
+  pay:
+    description: command to pay money for goods or services
+    usage: /<command> argument argument
+    aliases: zahlen
+  extendrent:
+    description: command to extend rented property
+    usage: /<command>
+    aliases: mieterweiterung
+  unrent:
+    description: command to cancel rent period
+    usage: /<command>
+    aliases: [resetrent, mietstornierung, cancelrent]
+  adjustrentprice:
+    description: command to adjust the price a property is rented for
+    usage: /<command> argument
+    aliases: mietanpassung
+  getshopinfo:
+    description: command delivering all relevent information about the shop
+    usage: /<command>
+    aliases: shopinformation
+  bidrent:
+    description: command allowing players to place a bid on the shop they are standing in
+    usage: /<command> argument
+    aliases: [suggestrent, mietvorschlag, offer]
+  clearbids:
+    description: command allowing the owner of the shop to clear of old bids
+    usage: /<command>
+    aliases: bereinigen
+  clearbill:
+    description: command allowing each player to delete specific seen bill from the repository
+    usage: /<command> argument
+    aliases: rechnungentfernen
+  clearallbills:
+    description: command allowing each player to delete all seen bills from the repository
+    usage: /<command>
+    aliases: allerechnungenentfernen
+  readbill:
+    description: command displaying specific bill to given player
+    usage: /<command> argument
+    aliases: rechnung
+  listallbills:
+    description: command displaying all readable bills
+    usage: /<command>
+    aliases: listeallerrechnungen
+
