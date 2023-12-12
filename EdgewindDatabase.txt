@@ -1,0 +1,516 @@
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `adminlicence`
+--
+
+CREATE TABLE `adminlicence` (
+  `AdminId` int(11) NOT NULL,
+  `AdminLicenceUUID` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `adminlicence`
+--
+
+INSERT INTO `adminlicence` (`AdminId`, `AdminLicenceUUID`) VALUES
+(1, '6b32dbe6-9636-46e2-b76d-cb5135a1fe3a');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `billing`
+--
+
+CREATE TABLE `billing` (
+  `BillId` int(11) NOT NULL,
+  `BilledPlayer` varchar(45) DEFAULT NULL,
+  `BilledUuid` varchar(150) DEFAULT NULL,
+  `Direction` varchar(45) DEFAULT NULL,
+  `BillingAmount` int(11) DEFAULT NULL,
+  `TotalLicenceFee` int(11) DEFAULT NULL,
+  `TotalRentProfit` int(11) DEFAULT NULL,
+  `TotalRentSpenditure` int(11) DEFAULT NULL,
+  `CaptialGains` int(11) DEFAULT NULL,
+  `AllDirectCollections` int(11) DEFAULT NULL,
+  `AllDirectPayments` int(11) DEFAULT NULL,
+  `AllRentIncome` int(11) DEFAULT NULL,
+  `AllRentExpenditure` int(11) DEFAULT NULL,
+  `AllShopSales` int(11) DEFAULT NULL,
+  `AllShopBuys` int(11) DEFAULT NULL,
+  `AllUtilityExpenditure` int(11) DEFAULT NULL,
+  `ActiveFlag` int DEFAULT NULL,
+  `PeriodStart` varchar(45) DEFAULT NULL,
+  `PeriodEnd` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `claimography`
+--
+
+CREATE TABLE `claimography` (
+  `ClaimogrId` int(11) NOT NULL,
+  `ClaimownerUUID` varchar(150) NOT NULL,
+  `Block_World` varchar(45) DEFAULT NULL,
+  `Block_X` double DEFAULT NULL,
+  `Block_Y` double DEFAULT NULL,
+  `Block_Z` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `claims`
+--
+
+CREATE TABLE `claims` (
+  `ClaimId` int(11) NOT NULL,
+  `Claimname` varchar(45) DEFAULT NULL,
+  `Claimowner` varchar(45) DEFAULT NULL,
+  `Block1_World` varchar(45) DEFAULT NULL,
+  `Block1_X` double DEFAULT NULL,
+  `Block1_Y` double DEFAULT NULL,
+  `Block1_Z` double DEFAULT NULL,
+  `Block2_World` varchar(45) DEFAULT NULL,
+  `Block2_X` double DEFAULT NULL,
+  `Block2_Y` double DEFAULT NULL,
+  `Block2_Z` double DEFAULT NULL,
+  `ClaimownerUUID` varchar(150) DEFAULT NULL,
+  `RenterUUID` varchar(150) DEFAULT NULL,
+  `RentTermination` varchar(45) DEFAULT NULL,
+  `RentPrice` int(11) DEFAULT NULL,
+  `Rentsign_World` varchar(45) DEFAULT NULL,
+  `Rentsign_X` double DEFAULT NULL,
+  `Rentsign_Y` double DEFAULT NULL,
+  `Rentsign_Z` double DEFAULT NULL,
+  `SignValue1` varchar(120) DEFAULT NULL,
+  `SignValue2` varchar(120) DEFAULT NULL,
+  `RenterUuidToBe` varchar(150) DEFAULT NULL,
+  `CurrentHighestBidder` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `claims`
+--
+
+INSERT INTO `claims` (`ClaimId`, `Claimname`, `Claimowner`, `Block1_World`, `Block1_X`, `Block1_Y`, `Block1_Z`, `Block2_World`, `Block2_X`, `Block2_Y`, `Block2_Z`, `ClaimownerUUID`, `RenterUUID`, `RentTermination`, `RentPrice`, `Rentsign_World`, `Rentsign_X`, `Rentsign_Y`, `Rentsign_Z`, `SignValue1`, `SignValue2`, `RenterUuidToBe`, `CurrentHighestBidder`) VALUES
+(31, '', 'Grimalkin_', 'world', -457, 70, 364, 'world', -442, 69, 383, '4ca0bbe6-87ac-458c-ba80-971eca2eb79d', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(54, '', 'Grimalkin_', 'world', 7552, 62, 7278, 'world', 7632, 60, 7196, '4ca0bbe6-87ac-458c-ba80-971eca2eb79d', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(55, '', 'grafando', 'world', 7624, 68, 7145, 'world', 7604, 67, 7127, '4fc126b6-ee48-4cb3-84b5-af5ba9072d75', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(62, '', 'Nbiwe_', 'world', -441, 64, 364, 'world', -427, 66, 379, '6b32dbe6-9636-46e2-b76d-cb5135a1fe3a', NULL, NULL, 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(63, '', 'Grimalkin_', 'world', 7501, 62, 7254, 'world', 7509, 63, 7246, '4ca0bbe6-87ac-458c-ba80-971eca2eb79d', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `crossgrantaccess`
+--
+
+CREATE TABLE `crossgrantaccess` (
+  `ForeignClaim` int(11) DEFAULT NULL,
+  `ForeignPlayer` int(11) DEFAULT NULL,
+  `CrossGrantAccessId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `crossrentings`
+--
+
+CREATE TABLE `crossrentings` (
+  `PlotId` int(11) NOT NULL,
+  `ForeignRenterLicence` int(11) DEFAULT NULL,
+  `Creationdate` varchar(45) DEFAULT NULL,
+  `ForeignCurrentRenter` int(11) DEFAULT NULL,
+  `ForeignClaimId` int(11) DEFAULT NULL,
+  `CurrentRentingPrice` int(11) DEFAULT NULL,
+  `FullRentPeriodFlag` int(11) DEFAULT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `crosstrust`
+--
+
+CREATE TABLE `crosstrust` (
+  `ForeignClaim` int(11) DEFAULT NULL,
+  `ForeignPlayer` int(11) DEFAULT NULL,
+  `CrossTrustId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `homes`
+--
+
+CREATE TABLE `homes` (
+  `HomeId` int(11) NOT NULL,
+  `Homename` varchar(45) NOT NULL,
+  `World` varchar(45) DEFAULT NULL,
+  `Axis_X` int(11) DEFAULT NULL,
+  `Axis_Y` int(11) DEFAULT NULL,
+  `Axis_Z` int(11) DEFAULT NULL,
+  `Username` varchar(45) DEFAULT NULL,
+  `UUID` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `homes`
+--
+
+INSERT INTO `homes` (`HomeId`, `Homename`, `World`, `Axis_X`, `Axis_Y`, `Axis_Z`, `Username`, `UUID`) VALUES
+(8, 'home', 'world', 7612, 89, 7216, 'Grimalkin_', '4ca0bbe6-87ac-458c-ba80-971eca2eb79d'),
+(21, 'home', 'world', -471, 93, 468, 'grafando', '4fc126b6-ee48-4cb3-84b5-af5ba9072d75'),
+(22, 'home', 'world', 6465, 90, -378, 'Surquix', '8f617dc8-0656-495d-b9d5-9dfd22dbf653'),
+(23, 'Ivory', 'world', 7599, 81, 7180, 'grafando', '4fc126b6-ee48-4cb3-84b5-af5ba9072d75'),
+(24, 'spawn', 'world', -647, 82, 425, 'Grimalkin_', '4ca0bbe6-87ac-458c-ba80-971eca2eb79d'),
+(25, 'home', 'world', -434, 68, 367, 'Nbiwe_', '6b32dbe6-9636-46e2-b76d-cb5135a1fe3a');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `players`
+--
+
+CREATE TABLE `players` (
+  `PlayerId` int(11) NOT NULL,
+  `Playername` varchar(45) DEFAULT NULL,
+  `UUID` varchar(150) DEFAULT NULL,
+  `Balance` double DEFAULT NULL,
+  `NumberOfHomes` int(11) DEFAULT NULL,
+  `DiaBlocksHarvested` int(11) DEFAULT NULL,
+  `GoldBlocksHarvested` int(11) DEFAULT NULL,
+  `JoinDate` varchar(45) DEFAULT NULL,
+  `Claimblocks` int(11) DEFAULT NULL,
+  `ActivityTimestamp` varchar(45) DEFAULT NULL,
+  `ActivityIndicator` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `players`
+--
+
+INSERT INTO `players` (`PlayerId`, `Playername`, `UUID`, `Balance`, `NumberOfHomes`, `DiaBlocksHarvested`, `GoldBlocksHarvested`, `JoinDate`, `Claimblocks`, `ActivityTimestamp`, `ActivityIndicator`) VALUES
+(6, 'grafando', '4fc126b6-ee48-4cb3-84b5-af5ba9072d75', 8543, 3, 0, 0, '2021/7/11', 35628, '2021/9/6/20/37', 3),
+(9, 'Surquix', '8f617dc8-0656-495d-b9d5-9dfd22dbf653', 750, 3, 0, 0, '2021/7/16', 464, '2021/10/10/12/49', 0),
+(11, 'Grimalkin_', '4ca0bbe6-87ac-458c-ba80-971eca2eb79d', 6474, 3, 0, 0, '2021/8/11', 4, '2021/10/10/12/16', 0),
+(12, 'Nbiwe_', '6b32dbe6-9636-46e2-b76d-cb5135a1fe3a', 47097, 1, 0, 0, '2021/9/4', 84, '2021/10/10/12/17', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `rentbill`
+--
+
+CREATE TABLE `rentbill` (
+  `RentBillId` int(11) NOT NULL,
+  `ForeignBill` int(11) DEFAULT NULL,
+  `Playername` varchar(45) DEFAULT NULL,
+  `Amount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `renterlicence`
+--
+
+CREATE TABLE `renterlicence` (
+  `LicenceId` int(11) NOT NULL,
+  `RenterLicenceUUID` varchar(150) DEFAULT NULL,
+  `AmntOfPlotsLicenced` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `renterlicence`
+--
+
+INSERT INTO `renterlicence` (`LicenceId`, `RenterLicenceUUID`, `AmntOfPlotsLicenced`) VALUES
+(1, '6b32dbe6-9636-46e2-b76d-cb5135a1fe3a', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `shopbid`
+--
+
+CREATE TABLE `shopbid` (
+  `ShopBidId` int(11) NOT NULL,
+  `ForeignClaimId` int(11) DEFAULT NULL,
+  `Bid` int(11) DEFAULT NULL,
+  `BidderUUID` varchar(150) DEFAULT NULL,
+  `BidderName` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tradedata`
+--
+
+CREATE TABLE `tradedata` (
+  `TradeDataId` int(11) NOT NULL,
+  `OwnerUUID` varchar(150) NOT NULL,
+  `Sign_World` varchar(45) DEFAULT NULL,
+  `Sign_X` double DEFAULT NULL,
+  `Sign_Y` double DEFAULT NULL,
+  `Sign_Z` double DEFAULT NULL,
+  `Chest_World` varchar(45) DEFAULT NULL,
+  `Chest_X` double DEFAULT NULL,
+  `Chest_Y` double DEFAULT NULL,
+  `Chest_Z` double DEFAULT NULL,
+  `InvIndices` varchar(100) DEFAULT NULL,
+  `StackCnt` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `tradedata`
+--
+
+INSERT INTO `tradedata` (`TradeDataId`, `OwnerUUID`, `Sign_World`, `Sign_X`, `Sign_Y`, `Sign_Z`, `Chest_World`, `Chest_X`, `Chest_Y`, `Chest_Z`, `InvIndices`, `StackCnt`) VALUES
+(12, '4fc126b6-ee48-4cb3-84b5-af5ba9072d75', 'world', -438, 69, 372, 'world', -437, 68, 368, 'REDSTONE_BLOCK,BONE', '1,4');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tradedatacreation`
+--
+
+CREATE TABLE `tradedatacreation` (
+  `UUID` varchar(150) NOT NULL,
+  `Chest_World` varchar(45) DEFAULT NULL,
+  `Chest_X` double DEFAULT NULL,
+  `Chest_Y` double DEFAULT NULL,
+  `Chest_Z` double DEFAULT NULL,
+  `InvIndices` varchar(100) DEFAULT NULL,
+  `StackCnt` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `world`
+--
+
+CREATE TABLE `world` (
+  `idWorld` int(11) NOT NULL,
+  `MoneyAmount` double DEFAULT NULL,
+  `Difficulty` varchar(45) DEFAULT NULL,
+  `InflationLevel` int(11) DEFAULT NULL,
+  `ClaimblockRatio` double DEFAULT NULL,
+  `InitialBalance` int(11) DEFAULT NULL,
+  `HalvingDayCount` int(11) DEFAULT NULL,
+  `HalvingYear` int(11) DEFAULT NULL,
+  `HalvingMonth` int(11) DEFAULT NULL,
+  `HalvingDay` int(11) DEFAULT NULL,
+  `RentingMaximum` int(11) DEFAULT NULL,
+  `LicenceCost` int(11) DEFAULT NULL,
+  `PlotCost` int(11) DEFAULT NULL,
+  `ElytraCost` int(11) DEFAULT NULL,
+  `DeathCost` int(11) DEFAULT NULL,
+  `LicenceFee` int(11) DEFAULT NULL,
+  `RentProcessingFlag` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `world`
+--
+
+INSERT INTO `world` (`idWorld`, `MoneyAmount`, `Difficulty`, `InflationLevel`, `ClaimblockRatio`, `InitialBalance`, `HalvingDayCount`, `HalvingYear`, `HalvingMonth`, `HalvingDay`, `RentingMaximum`, `LicenceCost`, `PlotCost`, `ElytraCost`, `DeathCost`, `LicenceFee`, `RentProcessingFlag`) VALUES
+(1, 400000, 'Hard', 1, 4.5, 750, 200, 2021, 3, 3, 5, 12000, 4500, 75000, 1250, NULL, NULL);
+
+--
+-- Indizes der exportierten Tabellen
+--
+
+--
+-- Indizes für die Tabelle `adminlicence`
+--
+ALTER TABLE `adminlicence`
+  ADD PRIMARY KEY (`AdminId`),
+  ADD UNIQUE KEY `AdminId_UNIQUE` (`AdminId`);
+
+--
+-- Indizes für die Tabelle `billing`
+--
+ALTER TABLE `billing`
+  ADD PRIMARY KEY (`BillId`),
+  ADD UNIQUE KEY `BillId_UNIQUE` (`BillId`);
+
+--
+-- Indizes für die Tabelle `claimography`
+--
+ALTER TABLE `claimography`
+  ADD PRIMARY KEY (`ClaimogrId`),
+  ADD UNIQUE KEY `ClaimogrId_UNIQUE` (`ClaimogrId`);
+
+--
+-- Indizes für die Tabelle `claims`
+--
+ALTER TABLE `claims`
+  ADD PRIMARY KEY (`ClaimId`),
+  ADD UNIQUE KEY `ClaimId_UNIQUE` (`ClaimId`);
+
+--
+-- Indizes für die Tabelle `crossgrantaccess`
+--
+ALTER TABLE `crossgrantaccess`
+  ADD PRIMARY KEY (`CrossGrantAccessId`),
+  ADD UNIQUE KEY `CrossGrantAccessId_UNIQUE` (`CrossGrantAccessId`);
+
+--
+-- Indizes für die Tabelle `crossrentings`
+--
+ALTER TABLE `crossrentings`
+  ADD PRIMARY KEY (`PlotId`),
+  ADD UNIQUE KEY `PlotId_UNIQUE` (`PlotId`);
+
+--
+-- Indizes für die Tabelle `crosstrust`
+--
+ALTER TABLE `crosstrust`
+  ADD PRIMARY KEY (`CrossTrustId`),
+  ADD UNIQUE KEY `CrossTrustId_UNIQUE` (`CrossTrustId`);
+
+--
+-- Indizes für die Tabelle `homes`
+--
+ALTER TABLE `homes`
+  ADD PRIMARY KEY (`HomeId`,`Homename`),
+  ADD UNIQUE KEY `HomeId_UNIQUE` (`HomeId`);
+
+--
+-- Indizes für die Tabelle `players`
+--
+ALTER TABLE `players`
+  ADD PRIMARY KEY (`PlayerId`),
+  ADD UNIQUE KEY `PlayerId_UNIQUE` (`PlayerId`);
+
+--
+-- Indizes für die Tabelle `rentbill`
+--
+ALTER TABLE `rentbill`
+  ADD PRIMARY KEY (`RentBillId`),
+  ADD UNIQUE KEY `RentBillId_UNIQUE` (`RentBillId`);
+
+--
+-- Indizes für die Tabelle `renterlicence`
+--
+ALTER TABLE `renterlicence`
+  ADD PRIMARY KEY (`LicenceId`),
+  ADD UNIQUE KEY `LicenceId_UNIQUE` (`LicenceId`);
+
+--
+-- Indizes für die Tabelle `shopbid`
+--
+ALTER TABLE `shopbid`
+  ADD PRIMARY KEY (`ShopBidId`),
+  ADD UNIQUE KEY `ShopBidId_UNIQUE` (`ShopBidId`);
+
+--
+-- Indizes für die Tabelle `tradedata`
+--
+ALTER TABLE `tradedata`
+  ADD PRIMARY KEY (`TradeDataId`),
+  ADD UNIQUE KEY `TradeDataId_UNIQUE` (`TradeDataId`);
+
+--
+-- Indizes für die Tabelle `world`
+--
+ALTER TABLE `world`
+  ADD PRIMARY KEY (`idWorld`),
+  ADD UNIQUE KEY `idWorld_UNIQUE` (`idWorld`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `adminlicence`
+--
+ALTER TABLE `adminlicence`
+  MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `billing`
+--
+ALTER TABLE `billing`
+  MODIFY `BillId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `claimography`
+--
+ALTER TABLE `claimography`
+  MODIFY `ClaimogrId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT für Tabelle `claims`
+--
+ALTER TABLE `claims`
+  MODIFY `ClaimId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT für Tabelle `crossgrantaccess`
+--
+ALTER TABLE `crossgrantaccess`
+  MODIFY `CrossGrantAccessId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT für Tabelle `crossrentings`
+--
+ALTER TABLE `crossrentings`
+  MODIFY `PlotId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `crosstrust`
+--
+ALTER TABLE `crosstrust`
+  MODIFY `CrossTrustId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT für Tabelle `homes`
+--
+ALTER TABLE `homes`
+  MODIFY `HomeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT für Tabelle `players`
+--
+ALTER TABLE `players`
+  MODIFY `PlayerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT für Tabelle `rentbill`
+--
+ALTER TABLE `rentbill`
+  MODIFY `RentBillId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `renterlicence`
+--
+ALTER TABLE `renterlicence`
+  MODIFY `LicenceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `shopbid`
+--
+ALTER TABLE `shopbid`
+  MODIFY `ShopBidId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `tradedata`
+--
+ALTER TABLE `tradedata`
+  MODIFY `TradeDataId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT für Tabelle `world`
+--
+ALTER TABLE `world`
+  MODIFY `idWorld` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
